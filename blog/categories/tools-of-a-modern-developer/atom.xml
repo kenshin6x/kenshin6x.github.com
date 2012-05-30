@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[seisxis~6x]]></title>
-  <link href="http://www.seisxis.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: tools of a modern developer | seisxis~6x]]></title>
+  <link href="http://www.seisxis.com/blog/categories/tools-of-a-modern-developer/atom.xml" rel="self"/>
   <link href="http://www.seisxis.com/"/>
   <updated>2012-05-30T16:43:24-03:00</updated>
   <id>http://www.seisxis.com/</id>

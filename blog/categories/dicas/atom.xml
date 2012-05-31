@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: dicas | SEISXIS dot com]]></title>
+  <link href="http://www.seisxis.com/blog/categories/dicas/atom.xml" rel="self"/>
+  <link href="http://www.seisxis.com/"/>
+  <updated>2012-05-30T23:18:59-03:00</updated>
+  <id>http://www.seisxis.com/</id>
+  <author>
+    <name><![CDATA[Junior Andrade]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Solução para encode de caracteres com PHP]]></title>
+    <link href="http://www.seisxis.com/blog/2012/05/30/solucao-para-encode-de-caracteres-com-php/"/>
+    <updated>2012-05-30T22:50:00-03:00</updated>
+    <id>http://www.seisxis.com/blog/2012/05/30/solucao-para-encode-de-caracteres-com-php</id>
+    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>charset_transfer.php  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;/&lt;em&gt;*</span>
+</span><span class='line'><span class="x"> * Funcao para encodar/decodar (charset) texto.</span>
+</span><span class='line'><span class="x"> * Suporta array multidimensional</span>
+</span><span class='line'><span class="x"> *</span>
+</span><span class='line'><span class="x"> * @author kenshin6x &amp;lt;seisxis@gmail.com</span>
+</span><span class='line'><span class="x"> *</span>
+</span><span class='line'><span class="x"> * @param mixed $input Valor a ser encodado/decodado. Caso seja um objeto, é necessario que seus atributos sejam publicos, e neste caso, o retorno sera uma copia do objeto, mantendo nome e atributos</span>
+</span><span class='line'><span class="x"> * @param string $function Nome da funcao a ser usada para transferir.</span>
+</span><span class='line'><span class="x"> *</span>
+</span><span class='line'><span class="x"> * @return mixed $return</span>
+</span><span class='line'><span class="x"> &lt;/em&gt;/&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;function charset_transfer($input,$function) {</span>
+</span><span class='line'><span class="x">    switch(gettype($input)) {</span>
+</span><span class='line'><span class="x">        case &quot;string&quot;:</span>
+</span><span class='line'><span class="x">            $return = call_user_func($function,$input);</span>
+</span><span class='line'><span class="x">        break;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">        case &quot;array&quot;:</span>
+</span><span class='line'><span class="x">            foreach ($input as $key =&amp;gt; $val) {</span>
+</span><span class='line'><span class="x">                if(is_string($val)) {</span>
+</span><span class='line'><span class="x">                    $return[$key] = call_user_func($function,$val);</span>
+</span><span class='line'><span class="x">                } else {</span>
+</span><span class='line'><span class="x">                    $returnTemp = charset_transfer($val,$function);</span>
+</span><span class='line'><span class="x">                    $return[$key] = $returnTemp;</span>
+</span><span class='line'><span class="x">                }</span>
+</span><span class='line'><span class="x">            }</span>
+</span><span class='line'><span class="x">        break;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">        case &quot;object&quot;:</span>
+</span><span class='line'><span class="x">            $inputVars = get_object_vars($input);</span>
+</span><span class='line'><span class="x">            $className = get_class($input);</span>
+</span><span class='line'><span class="x">            $classInstance = new $className();</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">            foreach ($inputVars as $key =&amp;gt; $val) {</span>
+</span><span class='line'><span class="x">                if(is_string($val)) {</span>
+</span><span class='line'><span class="x">                    $classInstance-&amp;gt;$key = call_user_func($function,$val);</span>
+</span><span class='line'><span class="x">                } else {</span>
+</span><span class='line'><span class="x">                    $returnTemp = charset_transfer($val,$function);</span>
+</span><span class='line'><span class="x">                    $classInstance-&amp;gt;$key = $returnTemp;</span>
+</span><span class='line'><span class="x">                }</span>
+</span><span class='line'><span class="x">            }</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">            return $classInstance;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">        break;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">        default:</span>
+</span><span class='line'><span class="x">            die(&quot;charset_transfer ERROR: TYPE UNSUPPORTED&quot;);</span>
+</span><span class='line'><span class="x">    }</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">    return $return;</span>
+</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

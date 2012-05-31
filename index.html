@@ -9,51 +9,7 @@
   <meta name="author" content="Junior Andrade">
 
   
-  <meta name="description" content="charset_transfer.php 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45 &hellip;">
+  <meta name="description" content="O Problema Tratar de caracteres sempre é um problema quando se diz respeito ao encode. Em algumas situações, somos remetidos a lidar com dados de &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,7 +37,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">SEISXIS dot com</a></h1>
   
-    <h2>Take yourself for modern concepts</h2>
+    <h2>Take yourself for an modern concepts</h2>
   
 </hgroup>
 
@@ -140,7 +96,27 @@
   </header>
 
 
-  <div class="entry-content">
+  <div class="entry-content"><h2>O Problema</h2>
+
+
+<p>
+Tratar de caracteres sempre é um problema quando se diz respeito ao encode. 
+Em algumas situações, somos remetidos a lidar com dados de bases diferentes onde o encode também é diferente, porém precisamos trata-los igualmente, seja para apresentação, persistência ou qualquer outra finalidade.
+</p>
+
+
+<p>É ideal que entendamos o funcionamento a tabela de encodes, para isso segue uma artigo interessantíssimo feita pelo site Tableless: <a href="http://tableless.com.br/charsets-e-encodes-tabelas-de-caracteres/">Entenda como funciona a tabela de caracteres e encodes no HTML</a>.
+</p></p>
+
+<h2>Certo, mas e a solução?</h2>
+
+
+<p></p>
+
+<p>
+Bem, escrevi uma função hà um tempo atrás para resolver justamente este tipo de problema. 
+Desta forma, temos uma função capaz de encodar objetos sejam eles classes, arrays ou strings.
+
 
 <figure class='code'><figcaption><span>charset_transfer.php  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -196,110 +172,67 @@
 <span class='line-number'>51</span>
 <span class='line-number'>52</span>
 <span class='line-number'>53</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">/**</span>
-</span><span class='line'><span class="x"> * Funcao para encodar/decodar (charset) texto.</span>
-</span><span class='line'><span class="x"> * Suporta array multidimensional</span>
-</span><span class='line'><span class="x"> *</span>
-</span><span class='line'><span class="x"> * @author kenshin6x &lt;seisxis@gmail.com</span>
-</span><span class='line'><span class="x"> *</span>
-</span><span class='line'><span class="x"> * @param mixed $input Valor a ser encodado/decodado. Caso seja um objeto, é necessario que seus atributos sejam publicos, e neste caso, o retorno sera uma copia do objeto, mantendo nome e atributos</span>
-</span><span class='line'><span class="x"> * @param string $function Nome da funcao a ser usada para transferir.</span>
-</span><span class='line'><span class="x"> *</span>
-</span><span class='line'><span class="x"> * @return mixed $return</span>
-</span><span class='line'><span class="x"> */</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Funcao para encodar/decodar (charset) texto.</span>
+</span><span class='line'><span class="sd"> * Suporta array multidimensional</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * @author kenshin6x &lt;seisxis@gmail.com&gt;</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * @param mixed $input Valor a ser encodado/decodado. Caso seja um objeto, é necessario que seus atributos sejam publicos, e neste caso, o retorno sera uma copia do objeto, mantendo nome e atributos</span>
+</span><span class='line'><span class="sd"> * @param string $function Nome da funcao a ser usada para transferir.</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * @return mixed $return</span>
+</span><span class='line'><span class="sd"> */</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">    function charset_transfer($input,$function) {</span>
-</span><span class='line'><span class="x">        switch(gettype($input)) {</span>
-</span><span class='line'><span class="x">            case &quot;string&quot;:</span>
-</span><span class='line'><span class="x">                $return = call_user_func($function,$input);</span>
-</span><span class='line'><span class="x">            break;</span>
-</span><span class='line'><span class="x">            </span>
-</span><span class='line'><span class="x">            case &quot;array&quot;:</span>
-</span><span class='line'><span class="x">                foreach ($input as $key =&gt; $val) {</span>
-</span><span class='line'><span class="x">                    if(is_string($val)) {</span>
-</span><span class='line'><span class="x">                        $return[$key] = call_user_func($function,$val);</span>
-</span><span class='line'><span class="x">                    } else {</span>
-</span><span class='line'><span class="x">                        $returnTemp = charset_transfer($val,$function);</span>
-</span><span class='line'><span class="x">                        $return[$key] = $returnTemp;</span>
-</span><span class='line'><span class="x">                    }</span>
-</span><span class='line'><span class="x">                }</span>
-</span><span class='line'><span class="x">            break;</span>
-</span><span class='line'><span class="x">            </span>
-</span><span class='line'><span class="x">            case &quot;object&quot;:</span>
-</span><span class='line'><span class="x">                $inputVars = get_object_vars($input);</span>
-</span><span class='line'><span class="x">                $className = get_class($input);</span>
-</span><span class='line'><span class="x">                $classInstance = new $className();</span>
-</span><span class='line'><span class="x">                </span>
-</span><span class='line'><span class="x">                foreach ($inputVars as $key =&gt; $val) {</span>
-</span><span class='line'><span class="x">                    if(is_string($val)) {</span>
-</span><span class='line'><span class="x">                        $classInstance-&gt;$key = call_user_func($function,$val);</span>
-</span><span class='line'><span class="x">                    } else {</span>
-</span><span class='line'><span class="x">                        $returnTemp = charset_transfer($val,$function);</span>
-</span><span class='line'><span class="x">                        $classInstance-&gt;$key = $returnTemp;</span>
-</span><span class='line'><span class="x">                    }</span>
-</span><span class='line'><span class="x">                }</span>
-</span><span class='line'><span class="x">                </span>
-</span><span class='line'><span class="x">                return $classInstance;</span>
-</span><span class='line'><span class="x">                </span>
-</span><span class='line'><span class="x">            break;</span>
-</span><span class='line'><span class="x">            </span>
-</span><span class='line'><span class="x">            default:</span>
-</span><span class='line'><span class="x">                die(&quot;charset_transfer ERROR: TYPE UNSUPPORTED&quot;);</span>
-</span><span class='line'><span class="x">        }</span>
-</span><span class='line'><span class="x">        </span>
-</span><span class='line'><span class="x">        return $return;</span>
-</span><span class='line'><span class="x">    }</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">charset_transfer</span><span class="p">(</span><span class="nv">$input</span><span class="p">,</span><span class="nv">$function</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">switch</span><span class="p">(</span><span class="nb">gettype</span><span class="p">(</span><span class="nv">$input</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">case</span> <span class="s2">&quot;string&quot;</span><span class="o">:</span>
+</span><span class='line'>            <span class="nv">$return</span> <span class="o">=</span> <span class="nb">call_user_func</span><span class="p">(</span><span class="nv">$function</span><span class="p">,</span><span class="nv">$input</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">case</span> <span class="s2">&quot;array&quot;</span><span class="o">:</span>
+</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$input</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span><span class="nb">is_string</span><span class="p">(</span><span class="nv">$val</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nv">$return</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">call_user_func</span><span class="p">(</span><span class="nv">$function</span><span class="p">,</span><span class="nv">$val</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nv">$returnTemp</span> <span class="o">=</span> <span class="nx">charset_transfer</span><span class="p">(</span><span class="nv">$val</span><span class="p">,</span><span class="nv">$function</span><span class="p">);</span>
+</span><span class='line'>                    <span class="nv">$return</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$returnTemp</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">case</span> <span class="s2">&quot;object&quot;</span><span class="o">:</span>
+</span><span class='line'>            <span class="nv">$inputVars</span> <span class="o">=</span> <span class="nb">get_object_vars</span><span class="p">(</span><span class="nv">$input</span><span class="p">);</span>
+</span><span class='line'>            <span class="nv">$className</span> <span class="o">=</span> <span class="nb">get_class</span><span class="p">(</span><span class="nv">$input</span><span class="p">);</span>
+</span><span class='line'>            <span class="nv">$classInstance</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$className</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$inputVars</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">if</span><span class="p">(</span><span class="nb">is_string</span><span class="p">(</span><span class="nv">$val</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nv">$classInstance</span><span class="o">-&gt;</span><span class="nv">$key</span> <span class="o">=</span> <span class="nb">call_user_func</span><span class="p">(</span><span class="nv">$function</span><span class="p">,</span><span class="nv">$val</span><span class="p">);</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nv">$returnTemp</span> <span class="o">=</span> <span class="nx">charset_transfer</span><span class="p">(</span><span class="nv">$val</span><span class="p">,</span><span class="nv">$function</span><span class="p">);</span>
+</span><span class='line'>                    <span class="nv">$classInstance</span><span class="o">-&gt;</span><span class="nv">$key</span> <span class="o">=</span> <span class="nv">$returnTemp</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">return</span> <span class="nv">$classInstance</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">default</span><span class="o">:</span>
+</span><span class='line'>            <span class="k">die</span><span class="p">(</span><span class="s2">&quot;charset_transfer ERROR: TYPE UNSUPPORTED&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$return</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
-  
-  
+</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/30/ferramentas-do-desenvolvedor-moderno-python-livereload/">Ferramentas Do Desenvolvedor Moderno: Python LiveReload</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-30T22:22:00-03:00" pubdate data-updated="true">Mai 30<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For about four years I’ve been using Textmate almost every day. I’m very fast with it. I’ve always thought about switching over to VIM or Emacs but I have been scared of losing my speed. In fact, I’ve actually tried Emacs in the past and also wrote a blog post on my experience. I liked it in general, but I ended up coming back to Textmate after a week. Why? I didn’t really feel like I was gaining anything.</p>
-
-<p>So, why would I even consider switching over to VIM?</p>
-
-<p>Server-Side SSH Editor
-Split Windows
-CTags
-Large Development Community &amp; Support
-Mastering VIM will lead to greater overall efficiency, given the limited potential of Textmate.
-What do I mean by the last item? If you master VIM and its “special” commands, you can be shockingly more efficient than what Textmate allows. The main reason being VIM’s movement commands and VIM-only plugins.</p>
-
-<p>I feel like I’m as fast as I’m going to get in Textmate, but I want to be faster. I also really want to leverage some powerful plugins that the VIM community has created for development, and I also really want to leverage the power of split windows.</p>
-
-<p>One use case for split windows that absolutely strikes my fancy is being able to see a front-end .haml file and also see the appropriate .scss file at the same time. Ooh, just the thought gives me a bout of excitement.</p>
 </div>
   
   
@@ -318,17 +251,13 @@ What do I mean by the last item? If you master VIM and its “special” command
     <section>
     <h1>Quem é ?</h1>
     <p>
-        Júnior Andrade é um desenvolvedor de software e amante de vídeo games nas horas vagas.
+        Júnior Andrade é desenvolvedor de software há vários anos e amante de vídeo games nas horas vagas.
     </p>
 </section>
 <section>
     <h1>Categorias</h1>
     <span id="todas_categorias">
 
-        
-            <a href="/blog/categories/ferramentas">ferramentas</a>
-        
-            <a href="/blog/categories/python">python</a>
         
             <a href="/blog/categories/dicas">dicas</a>
         
@@ -342,10 +271,6 @@ What do I mean by the last item? If you master VIM and its “special” command
     
       <li class="post">
         <a href="/blog/2012/05/30/solucao-para-encode-de-caracteres-com-php/">Solução para encode de caracteres com PHP</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/30/ferramentas-do-desenvolvedor-moderno-python-livereload/">Ferramentas do desenvolvedor moderno: Python LiveReload</a>
       </li>
     
   </ul>

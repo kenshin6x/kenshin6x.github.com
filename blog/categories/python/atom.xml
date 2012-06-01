@@ -4,7 +4,7 @@
   <title><![CDATA[Categoria: python | seisxis dot com]]></title>
   <link href="http://www.seisxis.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://www.seisxis.com/"/>
-  <updated>2012-05-31T23:27:23-03:00</updated>
+  <updated>2012-05-31T23:28:47-03:00</updated>
   <id>http://www.seisxis.com/</id>
   <author>
     <name><![CDATA[Junior Andrade]]></name>
@@ -70,7 +70,7 @@ ou
 
 
 <p>
-    Para iniciar o servidor que irá escutar as alterações nos documentos, é bem simples, e pode ser feito de duas maneiras: Escutando tudo, ou personalizando com um <a href="https://github.com/guard/guard" target="_blank">guardfile</a>. No caso do uso do guardfile, será necessário ter algum conhecimento em python, porém o poder da ferramenta neste caso vai muito além do que foi citado até então. Vamos tratar apenas ta tarefa principal do aplicativo.
+    Para iniciar o servidor que irá escutar as alterações nos documentos, é bem simples, e pode ser feito de duas maneiras: Escutando tudo, ou personalizando com um <a href="https://github.com/guard/guard" target="_blank">guardfile</a>. No caso do uso do guardfile, será necessário ter algum conhecimento em python, citarei um pouco mais a respeito a seguir.
 </p>
 
 

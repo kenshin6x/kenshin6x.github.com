@@ -4,7 +4,7 @@
   <title><![CDATA[Categoria: dicas | seisxis dot com]]></title>
   <link href="http://www.seisxis.com/blog/categories/dicas/atom.xml" rel="self"/>
   <link href="http://www.seisxis.com/"/>
-  <updated>2012-05-31T16:59:48-03:00</updated>
+  <updated>2012-05-31T23:23:21-03:00</updated>
   <id>http://www.seisxis.com/</id>
   <author>
     <name><![CDATA[Junior Andrade]]></name>
@@ -12,6 +12,144 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ferramentas do Desenvolvedor Moderno: Python LiveReload]]></title>
+    <link href="http://www.seisxis.com/blog/2012/05/31/ferramentas-do-desenvolvedor-moderno-python-livereload/"/>
+    <updated>2012-05-31T22:16:00-03:00</updated>
+    <id>http://www.seisxis.com/blog/2012/05/31/ferramentas-do-desenvolvedor-moderno-python-livereload</id>
+    <content type="html"><![CDATA[<p>
+Esta sem dúvidas é uma ferramenta bastante interessante, ela irá ajudar na tarefa chata de atualizar o navegador sempre que houver uma mudança nos arquivos front-end da aplicação, isto quer dizer, que sempre que você alterar conteúdo de um arquivo, seu browser automaticamente irá ser atualizado, agilizando mais o trabalho. Atualmente é suportado vários tipos de arquivo como: css, less, javascript, coffescript etc. <a href="https://github.com/lepture/python-livereload" target="_blank">Python LiveReload</a> é o server escrito em python do aplicativo <a href="http://livereload.com" target="_blank">LiveReload</a> disponível atualmente para MacOSX e Windows. Escolhi apresentar esta por ser grátis.
+</p>
+
+
+
+
+<p>
+    Gostaria de ressaltar, que apesar da ferramenta ser operada através de linha de comando e python, e o próprio desenvolvedor citar "Python LiveReload is designed for web developers who know Python", é muito simples de ser utilizada.
+</p>
+
+
+
+
+<h2>Instalação</h2>
+
+
+
+
+<p>
+    Se você esta em ambiente MacOSX ou Linux, este passo se torna ainda mais simples pois estes sistemas operacionais ja tem Python instalado. Caso seja ambiente Windows basta instalar <a href="http://www.python.org/download/" target="_blank">Python 2.7</a> ou superior. Também recomendo instalação do pacote <a href="http://pypi.python.org/pypi/pip" target="_blank">Pip</a>.
+</p>
+
+
+
+
+<p>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install livereload</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+ou
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>easy_install install livereload</span></code></pre></td></tr></table></div></figure></notextile></div>
+</p>
+
+
+
+
+<h2>Extensão no seu navegador</h2>
+
+
+<p>
+    Será necessário instalar uma extensão no navegador que você utiliza. O download pode ser feito <a href="http://help.livereload.com/kb/general-use/browser-extensions" target="_blank">nesta página</a>.
+</p>
+
+
+
+
+<p>
+    Para iniciar o servidor que irá escutar as alterações nos documentos, é bem simples, e pode ser feito de duas maneiras: Escutando tudo, ou personalizando com um <a href="https://github.com/guard/guard" target="_blank">guardfile</a>. No caso do uso do guardfile, será necessário ter algum conhecimento em python, porém o poder da ferramenta neste caso vai muito além do que foi citado até então. Vamos tratar apenas ta tarefa principal do aplicativo.
+</p>
+
+
+
+
+<h2>Inicializando o servidor normalmente</h2>
+
+
+
+
+<p>
+    Para inicializar o servidor escutando tudo, basta executar o seguinte comando:
+    
+    <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>livereload</span></code></pre></td></tr></table></div></figure></notextile></div> 
+
+    Em seguida deve-se acionar no botão da extensão <img src="/images/posts/pic1.jpg" title="Botão da extensão do LiveReload" > instalado no seu navegador. Caso seu navegador seja Google Chrome, e você estiver fazendo isto localmente, é necessário marcar o checkbox: Allow access to file URLs.
+</p>
+
+
+
+
+<p>
+    <img src="/images/posts/pic3.jpg" title="Extensão LiveReload no Google Chrome" >
+</p>
+
+
+
+
+<p>
+    Caso seu terminal fique semelhante como a figura abaixo, tudo deu certo, experimente alterar documentos que estão abertos no seu navegador para notar que as mudanças ocorrem imediatamente, sem necessidade de atualizar a página manualmente.
+</p>
+
+
+
+
+<p>
+      <img src="/images/posts/pic2.jpg" title="Terminal com LiveReload rodando" >
+</p>
+
+
+
+
+<h2>Guardfile</h2>
+
+
+
+
+<p>
+    Desta maneira, o poder da ferramenta vai além do que foi citado até aqui. É possível criar funções para executar tarefas mais complexas, como por exemplo compilar seu script .less para .css antes que o navegador seja atualizado ou definir quais arquivos ou tipos serão escutados pelo servidor. Neste ponto, vale apena conferir na <a href="http://livereload.readthedocs.org/en/latest/guardfile.html" target="_blank">documentação oficial</a> para maior compreendimento. Para maior aproveitamento é necessário conhecimento em python.
+</p>
+
+
+
+
+<p>
+Para exemplo, iremos criar um guardfile em que apenas os documentos .html e .js serão escutados pelo servidor:
+
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>guardfile.py  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">livereload.task</span> <span class="kn">import</span> <span class="n">Task</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Task</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;*.html&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">Task</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;/static/js/*.js&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>
+
+<p>
+Para inicializar o servidor com o guardfile, basta executar o como mostrado abaixo, ao invés da maneira anterior.
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>livereload /caminho/do/meu/guardfile.py</span></code></pre></td></tr></table></div></figure></notextile></div> 
+</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Solução para encode de caracteres com PHP]]></title>

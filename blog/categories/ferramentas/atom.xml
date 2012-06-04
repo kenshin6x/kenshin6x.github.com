@@ -4,7 +4,7 @@
   <title><![CDATA[Categoria: ferramentas | seisxis dot com]]></title>
   <link href="http://www.seisxis.com/blog/categories/ferramentas/atom.xml" rel="self"/>
   <link href="http://www.seisxis.com/"/>
-  <updated>2012-06-02T16:55:11-03:00</updated>
+  <updated>2012-06-04T00:26:40-03:00</updated>
   <id>http://www.seisxis.com/</id>
   <author>
     <name><![CDATA[Junior Andrade]]></name>
@@ -12,6 +12,110 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ferramentas do Desenvolvedor Moderno: Sparkup e Zen-Coding]]></title>
+    <link href="http://www.seisxis.com/blog/2012/06/03/ferramentas-do-desenvolvedor-moderno-sparkup-e-zen-coding/"/>
+    <updated>2012-06-03T22:38:00-03:00</updated>
+    <id>http://www.seisxis.com/blog/2012/06/03/ferramentas-do-desenvolvedor-moderno-sparkup-e-zen-coding</id>
+    <content type="html"><![CDATA[<p>
+Escrever páginas em HTML pode ser uma tarefa bastante repetitiva... não com <a href="https://github.com/rstacruz/sparkup" target="_blank">Sparkup</a> ou <a href="http://code.google.com/p/zen-coding/" target="_blank">Zen-Coding</a>! Ambas são ferramentas que simplificam a sintaxe do HTML agindo como snippets, proporcionando escrever longos blocos de código em uma velocidade impressionante, consequentemente aumentará a produtividade, algo ideal para programadores de front-end.</p>
+
+
+
+
+<p>Tratam-se de plugins que podem ser instalados em diversos ides/editores de texto (é preciso ver a compatibilidade de cada um). O Sparkup é inspirado no Zen-Coding e traz algumas melhorias, em contra-partida, o Zen-Coding possui maior compatibilidade de editores em que pode-se instala-lo. Irei falar um pouco mais sobre ambos plugins.<p>
+
+<p>Para os exemplos demonstrados abaixo, estou utilizando o <a href="http://code.google.com/p/macvim/" target="_blank">MacVim</a>  (GUI do VIM para MacOSX).</p>
+
+
+<h2>Zen-Coding: maior compatibilidade</h2>
+<p>o Zen-Coding possui uma grande lista de softwares compatíveis, entre eles, ferramentas exclusivas de Windows (Notepad++, PSPad) e MacOSX (Textmate, Coda, Espresso), o que torna-o uma boa escolha. Também é suportados ferramentas <a href="http://en.wikipedia.org/wiki/Cross-platform" target="_blank">cross-plataform</a>, entre elas ferramentas que funcionam em Linux (Vim, Eclipse, Komodo Edit/IDE), então usuários de linux não tem o que se preocupar. o Zen-Coding também possui uma variação maior de snippets podendo ate ser utilizado para escrever CSS e XSI.</p>
+
+<p>O funcionamento é bastante simples, basta escrever escrever em uma linha um código de semântica abreviada e utilizar alguma tecla para disparar a ação, e o plugin converterá esta linha no bloco completo correspondente ao que foi escrito. Vejamos alguns exemplos:
+</p>
+
+<p>Escrevendo a linha abaixo e pressionando <code>ctrl+e</code> (no caso do MacVim):</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>div#pagina&gt;div.logo+ul#menu&gt;li*5&gt;a
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+será convertido em :
+
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;pagina&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;logo&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</p>
+
+<h2>Sparkup: Um recurso interessante</h2>
+<p>O Sparkup foi inspirado no Zen-Coding e trás algumas melhorias, contudo apenas o Textmate e o Vim são editores de texto suportados oficialmente (até agora). O recurso mais notável é poder escrever <code>></code> e <code><</code> entre um node e outro para referenciar quando deseja que o próximo node seja inserido dentro ou fora do node antecessor, respectivamente. Isto faz com que seja possível escrever a estrutura de uma página inteira em poucos segundos. Em termos gerais, seu funcionamento é igual ao Zen-Coding. Vejamos alguns recursos do Sparkup demonstrados em um único exemplo:</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>div#wrap &gt; div#header &gt; div#logo &gt; h1{seisxis.com} <span class="nt">&lt; div</span><span class="err">#</span><span class="na">menu</span> <span class="nt">&gt;</span> ul &gt; li.item-$*3 <span class="err">&lt;&lt;</span><span class="nt">&lt; div</span><span class="err">#</span><span class="na">content</span> <span class="err">+</span> <span class="na">div</span><span class="err">#</span><span class="na">footer</span> <span class="nt">&gt;</span> p{copyright 2012}
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;logo&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;h1&gt;</span>seisxis.com<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-2&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-3&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;footer&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;p&gt;</span>copyright 2012<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2>Então, qual é o melhor?</h2>
+<p>Ambos são bastante similares, porém não ha como negar que recurso presente no Sparkup de poder prosseguir e retornar dentro do código é uma vantagem de peso sobre o Zen-Coding. Particularmente, este é o meu preferido. Porém, pode ser um pouco frustrante para algumas pessoas não poder instala-lo, já que apenas o Textmate e o Vim são suportados oficialmente. Como ambos tem recuros similares, o Zen-Coding pode ser sim uma ótima alternativa para quem não poder instalar o Sparkup, já que o poder da ferramenta não se limita apenas a um este recurso. Vale muito utilizar algum dos dois e perceber a produtividade decolar.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ferramentas do Desenvolvedor Moderno: Python LiveReload]]></title>

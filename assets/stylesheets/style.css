@@ -1,0 +1,38 @@
+body {
+    background-image: url('../images/bodybg.jpg');
+    background-repeat: repeat;
+    padding: 160px;
+    font-family: serif;
+    font-size: small;
+}
+
+#main {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    display: block;
+}
+
+#main p {
+    padding: .1em;
+    margin: .1em;
+}
+
+#main img {
+    padding: .5em;
+}
+
+#main p.not_normal {
+    color: #333;
+    letter-spacing: 2em;
+}
+
+#main p.mail {
+    color: #333;
+    font-weight: bold;
+}
+
+#main p.normal {
+    color: #999;
+}
+

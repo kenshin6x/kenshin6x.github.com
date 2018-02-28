@@ -2,7 +2,7 @@ body {
     background-image: url('../images/bodybg.jpg');
     background-repeat: repeat;
     padding: 160px;
-    font-family: serif;
+    font-family: 'Fira Mono';
     font-size: small;
 }
 
@@ -23,8 +23,8 @@ body {
 }
 
 #main p.not_normal {
-    color: #333;
-    letter-spacing: 2em;
+    color: #999;
+    letter-spacing: 1em;
 }
 
 #main p.mail {

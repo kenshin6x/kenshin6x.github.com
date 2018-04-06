@@ -13,26 +13,40 @@ body {
     display: block;
 }
 
+#main #logo {
+    background: url('../images/logo_g1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;
+    width: auto;
+    height: 250px;
+}
+
+#main #logo:hover {
+    background: url('../images/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;
+    width: auto;
+    height: 250px;
+}
+
 #main p {
-    padding: .1em;
-    margin: .1em;
-}
-
-#main img {
-    padding: .5em;
-}
-
-#main p.not_normal {
-    color: #999;
-    letter-spacing: 1em;
+    padding: 0.1em;
+    margin: 0.1em;
 }
 
 #main p.mail {
     color: #333;
     font-weight: bold;
+    letter-spacing: 1em;
+    margin-top: 0.5em;
 }
 
 #main p.normal {
     color: #999;
 }
 
+#main hr {
+    border: 1px solid #333;
+}

@@ -14,7 +14,7 @@ body {
 }
 
 #main #logo {
-    background: url('../images/logo_g1.png');
+    background: url('../images/logo_g.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 250px;
@@ -22,14 +22,14 @@ body {
     height: 250px;
 }
 
-#main #logo:hover {
-    background: url('../images/logo.png');
+/*#main #logo:hover {
+    background: url('../images/logo_g1.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 250px;
     width: auto;
     height: 250px;
-}
+}*/
 
 #main p {
     padding: 0.1em;
@@ -43,10 +43,10 @@ body {
     margin-top: 0.5em;
 }
 
-#main p.normal {
+#main p.mail span {
     color: #999;
 }
 
-#main hr {
-    border: 1px solid #333;
+#main p.normal {
+    color: #999;
 }

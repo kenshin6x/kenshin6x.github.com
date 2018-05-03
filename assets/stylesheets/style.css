@@ -1,20 +1,20 @@
 body {
     background-image: url('../images/bodybg.jpg');
     background-repeat: repeat;
-    padding: 160px;
+    padding: 15%;
     font-family: 'Fira Mono';
     font-size: small;
 }
 
 #main {
     margin: auto;
-    width: 50%;
+    width: 100%;
     text-align: center;
     display: block;
 }
 
 #main #logo {
-    background: url('../images/logo_g.png');
+    background: url('../images/logo.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 250px;

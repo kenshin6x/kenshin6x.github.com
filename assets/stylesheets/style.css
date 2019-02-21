@@ -1,7 +1,8 @@
 body {
-    background: #070707;
+    background-image: url('../images/bodybg.jpg');
     background-repeat: repeat;
     padding: 15%;
+    font-family: 'Fira Mono';
     font-size: small;
 }
 
@@ -13,10 +14,39 @@ body {
 }
 
 #main #logo {
-    background: url('../images/seisxis.png');
+    background: url('../images/logo.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: 250px;
     width: auto;
-    height: 350px;
+    height: 250px;
+}
+
+/*#main #logo:hover {
+    background: url('../images/logo_g1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;
+    width: auto;
+    height: 250px;
+}*/
+
+#main p {
+    padding: 0.1em;
+    margin: 0.1em;
+}
+
+#main p.mail {
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1em;
+    margin-top: 0.5em;
+}
+
+#main p.mail span {
+    color: #999;
+}
+
+#main p.normal {
+    color: #999;
 }

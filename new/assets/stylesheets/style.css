@@ -1,0 +1,22 @@
+body {
+    background: #070707;
+    background-repeat: repeat;
+    padding: 15%;
+    font-size: small;
+}
+
+#main {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+#main #logo {
+    background: url('../images/seisxis.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: auto;
+    height: 350px;
+}

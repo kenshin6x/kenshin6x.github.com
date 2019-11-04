@@ -1,0 +1,41 @@
+:root {
+    --bg-color: white;
+    --main-text-color: black;
+}  
+
+* {
+    font-family: "Inconsolata";
+}
+
+body {
+    background-color:var(--bg-color);
+    color: var(--main-text-color);
+    background-image: url('bodybg.jpg');
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    margin-bottom: 3.5px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    width: 80px;
+}
+
+a:link, a:visited, a:active {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div#main-content {
+    text-align: center;
+    font-size: 18px;
+    padding: 3.5px;
+}

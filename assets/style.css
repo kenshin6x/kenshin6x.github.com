@@ -21,8 +21,13 @@ p {
 img {
     margin-bottom: 3.5px;
     border-radius: 50%;
-    filter: grayscale(0.55);
     width: 80px;
+    filter: grayscale(1);
+}
+
+img:hover {
+    transition: 0.5s;
+    filter: grayscale(0.5);
 }
 
 a:link, a:visited, a:active {

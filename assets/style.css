@@ -13,11 +13,6 @@ body {
     background-image: url('bodybg.jpg');
 }
 
-p {
-    margin: 0;
-    padding: 0;
-}
-
 div#main-content {
     text-align: center;
     font-size: 18px;
@@ -30,8 +25,11 @@ div#main-content {
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
 }
 
+div#main-content p {
+    margin: 2.5px;
+}
+
 div#main-content img {
-    margin-bottom: 3.5px;
     border-radius: 50%;
     width: 80px;
     filter: grayscale(1);
@@ -57,15 +55,12 @@ div#main-content a:hover {
 }
 
 div#social-content {
-    margin-top: 6.5px;
     user-select: none;
 }
 
 div#social-content img {
     width: 22px;
     filter: opacity(0.55);
-    padding: 0;
-    margin: 0;
 }
 
 div#social-content img:hover {

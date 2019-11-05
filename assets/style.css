@@ -1,6 +1,7 @@
 :root {
     --bg-color: white;
     --main-text-color: black;
+    --transition-time: .3s;
 }  
 
 * {
@@ -37,8 +38,8 @@ div#main-content img {
 }
 
 div#main-content img:hover {
-    transition: 0.5s;
-    filter: grayscale(0.5);
+    transition: var(--transition-time);
+    filter: grayscale(.6);
 }
 
 div#main-content a:link, div#main-content a:visited, div#main-content a:active {
@@ -61,12 +62,12 @@ div#social-content {
 
 div#social-content img {
     width: 22px;
-    filter: opacity(0.55);
+    filter: opacity(.55);
 }
 
 div#social-content img:hover {
-    transition: 0.5s;
-    filter: opacity(0.85);
+    transition: var(--transition-time);
+    filter: opacity(.85);
 }
 
 div#social-content a:link, div#social-content a:visited, div#social-content a:active, div#social-content a:hover {

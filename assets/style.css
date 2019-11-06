@@ -5,18 +5,16 @@
 }  
 
 * {
-    font-family: "Inconsolata";
+    font-family: "Domine";
 }
 
 body {
     background-color:var(--bg-color);
     color: var(--main-text-color);
-    background-image: url('bodybg.jpg');
 }
 
 div#main-content {
     text-align: center;
-    font-size: 18px;
     position:fixed;
     top: 50%;
     left: 50%;
@@ -26,48 +24,53 @@ div#main-content {
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
 }
 
-div#main-content p {
+div#personal-content {
+    font-size: 18px;
+    margin: 5px;
+}
+
+div#personal-content p {
     margin: 2.5px;
 }
 
-div#main-content img {
+div#personal-content img {
     border-radius: 50%;
     width: 80px;
     filter: grayscale(1);
     user-select: none;
 }
 
-div#main-content img:hover {
+div#personal-content img:hover {
     transition: var(--transition-time);
     filter: grayscale(.6);
 }
 
-div#main-content a:link, div#main-content a:visited, div#main-content a:active {
+div#personal-content a:link, div#personal-content a:visited, div#personal-content a:active {
     color: var(--main-text-color);
     text-decoration: none;
 }
 
-div#main-content {
+div#personal-content {
     display: inline-block;
 }
 
-div#main-content a:hover {
+div#personal-content a:hover {
     text-decoration: underline;
 }
 
 div#social-content {
-    margin-top: 3.5px;
     user-select: none;
 }
 
 div#social-content img {
     width: 22px;
-    filter: opacity(.55);
+    filter: opacity(.75);
+    margin-left: 5px;
 }
 
 div#social-content img:hover {
     transition: var(--transition-time);
-    filter: opacity(.85);
+    filter: opacity(.95);
 }
 
 div#social-content a:link, div#social-content a:visited, div#social-content a:active, div#social-content a:hover {
